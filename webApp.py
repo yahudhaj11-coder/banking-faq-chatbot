@@ -13,6 +13,22 @@ model = genai.GenerativeModel("gemini-2.5-flash")
 
 st.title("Banking FAQ Assistant")
 
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button("What is KYC?"):
+        st.session_state.question = "What is KYC?"
+
+    if st.button("What is AML?"):
+        st.session_state.question = "What is AML?"
+
+with col2:
+    if st.button("What is SWIFT?"):
+        st.session_state.question = "What is SWIFT?"
+
+    if st.button("What is FATCA?"):
+        st.session_state.question = "What is FATCA?"
+
 question = st.text_input("Ask a banking question")
 
 SYSTEM_PROMPT = """
