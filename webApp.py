@@ -29,7 +29,10 @@ with col2:
     if st.button("What is FATCA?"):
         st.session_state.question = "What is FATCA?"
 
-question = st.text_input("Ask a banking question")
+question = st.text_input(
+    "Ask a banking question",
+    value=st.session_state.get("question", "")
+)
 
 SYSTEM_PROMPT = """
 You are a banking assistant.
