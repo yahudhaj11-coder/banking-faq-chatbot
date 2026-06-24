@@ -15,6 +15,26 @@ st.title("Banking FAQ Assistant")
 
 question = st.text_input("Ask a banking question")
 
+SYSTEM_PROMPT = """
+You are a banking assistant.
+
+Answer banking questions professionally.
+
+Keep answers under 150 words.
+
+If unsure, say:
+'I am not certain about that information.'
+
+Focus on:
+- KYC
+- AML
+- SWIFT
+- Remittances
+- Banking Operations
+"""
+
 if question:
-    response = model.generate_content(question)
+    response = model.generate_content(
+    SYSTEM_PROMPT + "\n\nUser Question: " + question
+)
     st.write(response.text)
